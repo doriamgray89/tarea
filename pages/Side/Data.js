@@ -66,6 +66,24 @@ export const Ruta = (datos) => {
         role: "2",
         avatar: "img/avatar.png",
         status: "1"
+      },
+      {
+        name: "El principito",
+        role: "2",
+        avatar: "img/avatar.png",
+        status: "2"
+      },
+      {
+        name: "20 Leguas de Viaje Submarino",
+        role: "2",
+        avatar: "img/avatar.png",
+        status: "2"
+      },
+      {
+        name: "Los Miserables",
+        role: "1",
+        avatar: "img/avatar.png",
+        status: "3"
       }
     ];
 

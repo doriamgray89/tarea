@@ -17,7 +17,7 @@ function Drop() {
                   width: "inherit",
                   textAlign: "left"
                 }}
-                className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Role
+                className="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Roles
       <span className="caret" style={{
                   float: "right"
                 }}
@@ -26,6 +26,20 @@ function Drop() {
                   width: "inherit"
                 }}
           className="dropdown-menu">
+            {(()=>{              
+            datos['role']='';
+            var ruta = Ruta(datos);
+            return(
+              
+          <li><a  
+          onClick={(e) => {
+              e.preventDefault();
+              route.push(ruta)                     								
+              }}
+              href={`${ruta}`}   
+    >Roles</a></li> 
+            )
+            })()}
             {
           roles.map(role => {
             var cont = 0;
@@ -48,6 +62,7 @@ function Drop() {
             var ruta = Ruta(datos);
             return(
               <>
+              <li className="divider"></li>
               <li><a  
                     onClick={(e) => {
                         e.preventDefault();
@@ -55,7 +70,6 @@ function Drop() {
                         }}
                         href={`${ruta}`}   
               >{role.data} <span>{cont}</span></a></li>
-              <li className="divider"></li>
               </>
             )
           })

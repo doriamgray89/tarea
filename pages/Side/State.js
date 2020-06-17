@@ -26,6 +26,20 @@ function Estado() {
                   width: "inherit"
                 }}
           className="dropdown-menu">
+          {(()=>{              
+          datos['state']='';
+          var ruta = Ruta(datos);
+          return(
+            
+        <li><a  
+        onClick={(e) => {
+            e.preventDefault();
+            route.push(ruta)                     								
+            }}
+            href={`${ruta}`}   
+        >Status</a></li> 
+          )
+          })()}
             {
           status.map(state => {
             var cont = 0;
@@ -47,14 +61,20 @@ function Estado() {
             var ruta = Ruta(datos);
             return(
               <>
-              <li><a  
+              <li className="divider"></li>
+              <li>
+                <a  
                     onClick={(e) => {
                         e.preventDefault();
                         route.push(ruta)                     								
                         }}
                         href={`${ruta}`}   
-              >{state.data} <span>{cont}</span></a></li>
-              <li className="divider"></li>
+                >
+                <svg width="10" height="10">
+                  <rect width="10" height="120" style={{fill:state.color}}/>
+                </svg>
+                {state.data} <span>{cont}</span></a>
+              </li>
               </>
             )
           })
