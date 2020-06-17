@@ -1,0 +1,65 @@
+/* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+a > span {
+    float: right;
+}
+
+.thgray{
+    background-color:#dbe0e6;
+    color:#899097;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+ 
+.input_container {
+    position:relative;
+    margin-bottom: 30px;
+}
+
+.input_container > input {
+    background-color:#dbe0e6;
+    border-radius: 5px;
+    border: 0;
+    width:100%;
+    height: 30px;
+    padding-right: 25px;
+}
+
+.input_container > i {
+    position:absolute;
+    color:#899097;
+    bottom: 0px;
+    right:0px;
+    width:24px;
+    height:24px;
+}
+
+
+  #example1 {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 8px 10px #888888;
+    margin-left: 10px;
+  }
+  
+  
+.form-control:focus {
+    outline: 0 !important;
+    border-color: initial;
+    box-shadow: none;
+}
