@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router';
-import { Json } from './components/Json';
+import { Json } from '../../components/Json';
 
 export const Datos = () => {
 	const router = useRouter();

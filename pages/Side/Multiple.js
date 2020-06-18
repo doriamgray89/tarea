@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 import {useRouter} from 'next/router';
 import List, { Estado, SendUrl } from './Data';
-import { Json } from './components/Json';
+import { Json } from '../../components/Json';
 
 class SelectPage extends React.Component {
   

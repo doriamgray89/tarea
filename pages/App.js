@@ -1,10 +1,8 @@
 import React from 'react';
 import Worker from './Side/Worker';
-import Drop from './Side/Dropdown';
 import Buscar from './Side/Search';
 import {useRouter} from 'next/router';
 import { Datos , Ruta } from './Side/Data';
-import Estado from './Side/State';
 import SelectPage from './Side/Multiple';
 
 function App() {
