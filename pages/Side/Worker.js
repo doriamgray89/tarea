@@ -4,6 +4,7 @@ import List, { Roles, Status } from './Data';
 
 function Worker() {
     var workers = List();
+    
     var role = Roles();
     var status = Status();
     

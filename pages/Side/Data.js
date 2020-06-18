@@ -1,4 +1,5 @@
 import {useRouter} from 'next/router';
+import { Json } from './components/Json';
 
 export const Datos = () => {
 	const router = useRouter();
@@ -39,57 +40,7 @@ export const Ruta = (datos) => {
   export const List = () => {
     var query = Datos();
 
-    var datos = [];
-    datos = [
-      {
-        name: "Tareas Programadas",
-        role: "5",
-        avatar: "img/avatar.png",
-        status: "4"
-      },
-      {
-        name: "Jack Ma",
-        role: "5",
-        avatar: "img/avatar.png",
-        status: "3"
-      },
-      {
-        name: "Mark Zukember",
-        role: "5",
-        avatar: "img/avatar.png",
-        status: "2"
-      },
-      {
-        name: "Alain Vivó",
-        role: "1",
-        avatar: "img/avatar.png",
-        status: "1"
-      },
-      {
-        name: "Adis Rodríguez",
-        role: "2",
-        avatar: "img/avatar.png",
-        status: "1"
-      },
-      {
-        name: "El principito",
-        role: "2",
-        avatar: "img/avatar.png",
-        status: "2"
-      },
-      {
-        name: "20 Leguas de Viaje Submarino",
-        role: "2",
-        avatar: "img/avatar.png",
-        status: "2"
-      },
-      {
-        name: "Los Miserables",
-        role: "1",
-        avatar: "img/avatar.png",
-        status: "3"
-      }
-    ];
+    var datos = Json();    
 
     let result = datos.filter(function(obj){
       if(obj.name.includes(query['q'])){
@@ -102,19 +53,11 @@ export const Ruta = (datos) => {
           return obj;
           }
         });
-
-    // let state = role.filter(function(obj){
-    //    if(obj.status.includes(query['state'])){
-    //        return obj;
-    //        }
-    //          });
     
     var status=query['status'];
     var est=status.split(",");
     let estados=[];
-    let key;
 
-    //console.log(est);
     if(est.length>0 && est[0]!=""){
       role.forEach((obj,key) => {
         est.forEach(element => {
@@ -129,7 +72,7 @@ export const Ruta = (datos) => {
           estados = role;
         }
 
-       console.log(estados);
+    //localStorage.setItem("workers", 'estados');
     return estados;
   }
   
@@ -156,18 +99,18 @@ export const Ruta = (datos) => {
     return status;
   }
 
-  export const Estado = () => {
-    // var workers = List();
+  export const Estado = (workers) => {
+    
     var status = Status();
     var listado = [];
     
     status.forEach(estado => {
       var cont = 0;
-
-      // workers.map(worker => {
-      //   if(worker.status == state.id)
-      //   cont++;
-      // })
+      
+        workers.map(worker => {
+          if(worker.status == estado.id)
+          cont++;
+        })
         var estilo= '"fill:' + estado.color + '"';
         listado[estado.id]={value: estado.id, 
                         label: <><svg width="10" height="10">

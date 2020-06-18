@@ -40,7 +40,7 @@ function App() {
                 </div> */}
                 <div className="row">
                   <div className="col-xs-12 col-md-12">
-                    <SelectPage/>
+                    <SelectPage workers='test'/>
                   </div>
                 </div>
 
