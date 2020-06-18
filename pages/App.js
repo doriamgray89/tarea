@@ -5,6 +5,7 @@ import Buscar from './Side/Search';
 import {useRouter} from 'next/router';
 import { Datos , Ruta } from './Side/Data';
 import Estado from './Side/State';
+import SelectPage from './Side/Multiple';
 
 function App() {
   const route = useRouter();
@@ -20,40 +21,64 @@ function App() {
             <div className="row">
               <div className="col-xs-8 col-md-8">
                 <Buscar/>
-            <div className="row">
-              <div className="col-xs-12 col-md-12">
-                <Worker/>
+                <div className="row">
+                  <div className="col-xs-12 col-md-12">
+                    <Worker/>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
               <div className="col-xs-4 col-md-4">
-              <Drop/>
-              <Estado/>
-              <div>
-                <a  
+              <div className="row">
+                  <div className="col-xs-12 col-md-12">
+                    <Drop/>
+                  </div>
+                </div>
+                {/* <div className="row">
+                  <div className="col-xs-12 col-md-12">
+                    <Estado/>
+                  </div>
+                </div> */}
+                <div className="row">
+                  <div className="col-xs-12 col-md-12">
+                    <SelectPage/>
+                  </div>
+                </div>
+
+                
+                <div className="row">
+                  <div className="col-xs-6 col-md-6">
+                      <a  
                     onClick={(e) => {
+                      var status='';
+                      if(null!=localStorage.getItem("status")){
+                        status=localStorage.getItem("status");
+                      }
+                      var data = status;
+                      datos['status']=data;
+                      var ruta =Ruta(datos);
                         e.preventDefault();
                         route.push(ruta)                     								
                         }}
-                        href="#"
-                        // {`${ruta}`}   
-                
+                        href="#"                
                     style={{fontStyle:'italic',
                                     float:'left',
-                                    marginTop:'50px'}}>filtrar</a>
-              </div>
-              
-              <div>
+                                    marginTop:'50px'}}>
+                                      filtrar
+                                      </a>
+                  </div>
+                  <div className="col-xs-4 col-md-4">
                 <a href="/"  
                     onClick={(e) => {
                         e.preventDefault();
+                        localStorage.setItem("status", "");
                         route.push("/")                     								
                         }}  
                 
                     style={{fontStyle:'italic',
                                     float:'right',
                                     marginTop:'50px'}}>limpiar</a>
-              </div>
+                  </div>
+                </div>
               </div>
         </div>        
         </div>

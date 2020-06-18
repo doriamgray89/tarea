@@ -1,6 +1,7 @@
 import React from 'react';
 import App from './App';
 import Head from 'next/head';
+import SelectPage from './Side/Multiple';
 
 const Index = () => {
     return(

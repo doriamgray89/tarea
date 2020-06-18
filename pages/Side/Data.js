@@ -3,11 +3,10 @@ import {useRouter} from 'next/router';
 export const Datos = () => {
 	const router = useRouter();
 	var datos = [];
-	
-	var q =router.query.q;
-	var role =router.query.role;
-	var state =router.query.state;
+  
+  let {q, role, status,state} = router.query;
 
+  
 	if(q==undefined){
 		q="";
 	}
@@ -20,16 +19,21 @@ export const Datos = () => {
 		state="";
 	}
 
+	if(status==undefined){
+		status="";
+	}
+
 	datos['q'] = q;
 	datos['role'] = role;
 	datos['state'] = state;
+	datos['status'] = status;
 
 
 	return datos;
 }
 
 export const Ruta = (datos) => {
-    return `/?q=${datos['q']}&state=${datos['state']}&role=${datos['role']}`;
+    return `/?q=${datos['q']}&state=${datos['state']}&role=${datos['role']}&status=${datos['status']}`;
 }
 
   export const List = () => {
@@ -99,13 +103,34 @@ export const Ruta = (datos) => {
           }
         });
 
-    let state = role.filter(function(obj){
-       if(obj.status.includes(query['state'])){
-           return obj;
-           }
-             });
-             
-    return state;
+    // let state = role.filter(function(obj){
+    //    if(obj.status.includes(query['state'])){
+    //        return obj;
+    //        }
+    //          });
+    
+    var status=query['status'];
+    var est=status.split(",");
+    let estados=[];
+    let key;
+
+    //console.log(est);
+    if(est.length>0 && est[0]!=""){
+      role.forEach((obj,key) => {
+        est.forEach(element => {
+          if(obj.status == element){
+            console.log(element);
+            console.log(obj.name+'-'+obj.status);
+              estados[key]=obj;
+              }
+        });
+      });
+        }else{
+          estados = role;
+        }
+
+       console.log(estados);
+    return estados;
   }
   
   export const Roles = () => {
@@ -129,6 +154,49 @@ export const Ruta = (datos) => {
     status[4]={id: 4,data: "Done", color: 'grey'};
 
     return status;
+  }
+
+  export const Estado = () => {
+    // var workers = List();
+    var status = Status();
+    var listado = [];
+    
+    status.forEach(estado => {
+      var cont = 0;
+
+      // workers.map(worker => {
+      //   if(worker.status == state.id)
+      //   cont++;
+      // })
+        var estilo= '"fill:' + estado.color + '"';
+        listado[estado.id]={value: estado.id, 
+                        label: <><svg width="10" height="10">
+                              <rect width="10" height="120" style={{fill: estado.color }}/>
+                                </svg> {`${estado.data}`}<span style={{float:'right'}}>{`${cont}`}</span></> };
+    });
+
+    
+    return listado;
+  } 
+
+  export function SendUrl(list){
+        
+        var data = '';
+        if(null !=list){
+        if(list.length > 0){
+          
+          list.forEach(state => {
+            if(data == ''){
+              data= state.value;
+            }else{
+              data+=','+state.value;
+            }
+            
+          });
+        }
+      }
+
+        localStorage.setItem("status", data);  
   }
 
   export default List;

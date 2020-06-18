@@ -56,8 +56,6 @@ function Drop() {
               activo="active";
             }
 
-            console.log(activo);
-
             datos['role']=role.id;
             var ruta = Ruta(datos);
             return(
