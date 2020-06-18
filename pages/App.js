@@ -28,11 +28,11 @@ function App() {
                 </div>
               </div>
               <div className="col-xs-4 col-md-4">
-              <div className="row">
+                {/* <div className="row">
                   <div className="col-xs-12 col-md-12">
                     <Drop/>
                   </div>
-                </div>
+                </div> */}
                 {/* <div className="row">
                   <div className="col-xs-12 col-md-12">
                     <Estado/>

@@ -13,7 +13,7 @@ function Worker() {
       <thead>
         <tr>
           <th scope="col" className="thgray">Title</th>
-          <th scope="col" className="thgray">Role</th>
+          {/* <th scope="col" className="thgray">Role</th> */}
           <th scope="col" className="thgray">Status</th>
         </tr>
       </thead>
@@ -26,7 +26,7 @@ function Worker() {
                     <img alt="avatar" className="avatar" src={worker.avatar} />
                     {worker.name}
                 </td>
-              <td>{role[worker.role].data}</td>
+              {/* <td>{role[worker.role].data}</td> */}
               <td style={{
                 color: status[worker.status].color
               }}>{status[worker.status].data}</td>
