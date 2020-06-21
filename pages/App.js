@@ -69,6 +69,13 @@ function App() {
                     onClick={(e) => {
                         e.preventDefault();
                         localStorage.setItem("status", "");
+                        document.getElementsByClassName("input_container").value = "";
+                        
+                        // var elements = document.querySelector('.container');
+                        // console.log(elements);
+                        // for(var i = 0; i < elements.length; i++){
+                        //   elements[i].selected = false;
+                        // }
                         route.push("/")                     								
                         }}  
                 

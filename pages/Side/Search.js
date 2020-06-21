@@ -19,8 +19,9 @@ function Search() {
                         }
                         }>
                         <input type="text"
-                            //value={datos['q']}
+                            defaultValue={datos['q']}
                             onChange={e => (setquery(e.target.value))}
+                            
                         />
                         <i className="fa fa-search"></i>
                       </form>
